@@ -75,7 +75,7 @@ public class IrcBot extends PircBot {
 	System.out.println(getTime() + " - Connecting to IRC");
 	String server = props.getProperty("irc.server");
 	int port = Integer.parseInt(props.getProperty("irc.port"));
-
+	System.out.println(server + " " + port);
 	try {
 	    connect(server, port);
 	} catch (NickAlreadyInUseException e) {
@@ -141,6 +141,7 @@ public class IrcBot extends PircBot {
 	System.out.println(getTime() + " - The bot has been set up");
     }
     
+    /*
     @Override
     protected void onUserList(String channel, User[] users) {
 	String avoidNick = props.getProperty("irc.avoid.nick");
@@ -155,7 +156,9 @@ public class IrcBot extends PircBot {
 	channelPost = true;
 	System.out.println(getTime() + " - " + avoidNick + " is not in the channel. Setting channelPost to true.");
     }
+    */
     
+    /*
     @Override
     protected void onJoin(String channel, String sender, String login, String hostname) {
 	if (hostname.equalsIgnoreCase(avoidAuth)) {
@@ -163,20 +166,26 @@ public class IrcBot extends PircBot {
 	    channelPost = false;
 	}
     }
+    */
     
+    /*
     protected void onPart(String channel, String sender, String login, String hostname) {
-	if (hostname.equalsIgnoreCase(avoidAuth)) {
-   	    System.out.println(getTime() + " - " + avoidAuth + " parted the channel. Setting channelPost to true.");
-   	    channelPost = true;
-   	}
-       }
-       
+	    if (hostname.equalsIgnoreCase(avoidAuth)) {
+   	        System.out.println(getTime() + " - " + avoidAuth + " parted the channel. Setting channelPost to true.");
+   	        channelPost = true;
+   	    }
+    }
+    */ 
+    
     @Override
     protected void onQuit(String sourceNick, String sourceLogin, String sourceHostname, String reason) {
-	if (sourceHostname.equalsIgnoreCase(avoidAuth)) {
+	/* 
+	 if (sourceHostname.equalsIgnoreCase(avoidAuth)) {
+	 
 	    System.out.println(getTime() + " - " + avoidAuth + " quit the server. Setting channelPost to true.");
    	    channelPost = true;
    	   }
+   	*/
 	if (sourceNick.equalsIgnoreCase(getNick())) {
 	    System.out.println("Thefk onquit got called for me");
 	    serializeAuthToUsername();
