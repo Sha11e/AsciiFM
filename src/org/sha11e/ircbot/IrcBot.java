@@ -26,6 +26,7 @@ public class IrcBot extends PircBot {
     private final String commandPrefix = props.getProperty("irc.command.prefix");
     private final String avoidAuth = props.getProperty("irc.avoid.auth");
     
+    //Test
     public IrcBot() {
 	System.out.println(getTime() + " - Setting up the bot");
 	addCommands();
