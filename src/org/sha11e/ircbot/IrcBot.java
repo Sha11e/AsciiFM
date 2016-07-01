@@ -299,7 +299,7 @@ public class IrcBot extends PircBot {
     @Override
     protected void onDisconnect() {
 	serializeAuthToUsername();
-	System.out.println("onDisconnect! The Auth to Nick file has been serialized!");
+	System.out.println("onDisconnect! The Auth to Nick file has been serialized.");
 	connectToIrc();
     }
     
